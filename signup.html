@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign-Up Page</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style1.css">
+        <link href="fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <img class="first" src="img/Vector.png">
+            <div class="lft">Categories</div>
+            <img class="second" src="img/vk.png">
+            <div class="right">Jobseeker Login/Register</div>
+            <div class="rgt-border">
+                <div class="content">
+                    <h3 class="one">Employers</h3>
+                    <h3 class="two">Buy Online</h3>
+                    <div class="vl"></div>
+                </div>
+            </div>
+        </header>
+        <script type="text/javascript"> 
+             
+            function validate()
+            {
+                var name = document.getElementById("fname");
+                var email = document.getElementById("email");
+                var mobile = document.getElementById("mob");
+                var password = document.getElementById("pass");
+                var cpass = document.getElementById("cpass");
+             
+                
+                if(name.value.trim() =="")
+                    {
+                        alert("Blank Name not allowed");
+                        name.style.border = "solid 1px red";
+                        document.getElementById("lb1user").style.visibility="visible";
+                        return false;
+                    }
+                 if(password.value.length<8)
+                    {
+                        alert("password should not be less than 8 characters");      //Password validate: should not be less than 8
+                        return false;
+                    }
+                if(password.value.search(/[0-9]/)==-1)
+                    {
+                        alert("Password should atleast contain 1 numeric value");
+                        return false;
+                    }
+                if(password.value.search(/[a-z]/)==-1)
+                    {
+                        alert("Password should atleast contain 1 lower case letter");
+                        return false;
+                    }
+                if(password.value.search(/[A-Z]/)==-1)
+                    {
+                        alert("Password should atleast contain 1 upper case letter");
+                        return false;
+                    }
+                else if(email.value.trim() ==""){
+                        alert("Blank email id not allowed");
+                        email.style.border = "solid 3px red";
+                        document.getElementById("lb2user").style.visibility="visible";
+                        return false;
+                        }
+                else if(mobile.value.trim() ==""){
+                    alert("Blank mobile number not allowed");
+                     mobile.style.border = "solid 3px red";
+                   document.getElementById("lb3user").style.visibility="visible";
+                    return false;
+                }
+                else if(mobile.value.length<10)
+                    {
+                        alert("please write 10 digit mobile number");
+                        return false;
+                    }
+                  else if(mobile.value.length>10)
+                    {
+                        alert("please write 10 digit mobile number");
+                        return false;
+                    }
+                else if(password.value.trim()==""){
+                         alert("Please fill the password");
+                        return false;
+                        } 
+                else if(cpass.value.trim()==""){
+                    alert("Please fill confirm password");
+                     cpass.style.border = "solid 3px red";
+                    document.getElementById("lb5user").style.visibility="visible";
+                    return false;
+                }
+                else if(cpass.value != password.value)
+                    {
+                        alert("Please confirm your password")
+                        return false;
+                    }
+                else{
+                    return true;
+                }
+            }
+        </script>
+        <div class="sign">Sign Up</div>
+        <div class="box">
+            <form  onsubmit="return validate()" action="sign-up.html">
+                <label class="na" for="fname">Your Name*</label>
+    <input class="name" type="text" id="fname" name="firstname" placeholder="Your Name*">
+                <label id="lb1user" style="color: red; visibility: hidden;">Invalid</label>
+                 <label class="em" for="email">Email ID*</label>
+    <input class="ema" type="email" id="email" name="Email ID" placeholder="Email ID*">
+                <label id="lb2user" style="color: red; visibility: hidden;">Invalid</label>
+                 <label class="mo" for="mob">Mobile*</label>
+    <input  class="mb" type="number" id="mob" name="Mobile" placeholder="Mobile*">
+                <label id="lb3user" style="color: red; visibility: hidden;">Invalid</label>
+                <label class="pa" for="pass">Password*</label>
+    <input class="ps" type="password" id="pass" name="password" placeholder="Password*">
+                <label id="lb4user" style="color: red; visibility: hidden;">Invalid</label>
+                <i class="fa fa-eye" id="eye"></i>
+                <label class="cp" for="cpass">Confirm Password*</label>
+    <input class="cs" type="password" id="cpass" name="Cpass" placeholder="Confirm Password*">
+                <label id="lb5user" style="color: red; visibility: hidden;">Invalid</label>
+                 <input class="cc" type="submit" value="Register and Login">
+            </form>
+            <div class="aa">By clicking Register, you agree to the JobskaGuru User Agreement, 
+Privacy Policy, and Cookie Policy.</div>
+            <div class="ar">
+                <div>Already Registered?</div><a class="arr" href="">Sign in</a>
+            </div>
+            <script type="text/javascript">
+                   var eye= document.getElementById("eye");
+                var password = document.getElementById("pass");
+            
+                eye.addEventListener('click',togglePass);
+                
+                function togglePass(){
+                    eye.classList.toggle('active');
+                    (password.type == 'password')? password.type = 'text' : password.type = 'password';
+                }
+            </script>
+        </div>
+        <div class="gey">
+        </div>
+        <footer>
+            <div class="he">All rights reserved @ 2020 Jobskaguru</div>
+        </footer>
+    </body>
+</html>
